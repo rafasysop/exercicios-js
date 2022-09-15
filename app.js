@@ -20,12 +20,13 @@ console.log("response 1: ", oddNumbers);
 
 const crazyNumbers = [937, 5, 395, 402, 501, 333, 502, 781, 3, 691];
 
-const quantityNumberUnder501 = crazyNumbers.filter((number) => number < 501);
-console.log(
-  "response 2: ",
-  `${quantityNumberUnder501.length} numbers: `,
-  quantityNumberUnder501.sort((a, b) => a - b)
-);
+const quantityNumberUnder501 = crazyNumbers.reduce((acc, number) => {
+  if (number < 501) {
+    return acc + 1;
+  }
+  return acc;
+}, 0);
+console.log("response 2: ", quantityNumberUnder501);
 
 /*
   03
